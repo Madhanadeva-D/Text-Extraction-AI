@@ -45,7 +45,27 @@ Streamlit offers:
 | Frontend         | Streamlit               |
 
 ## System Architecture
+```
+Text-Extraction-AI/
+├── backend/                   # FastAPI backend application
+│   ├── app.py                 # Main FastAPI application and routes
+│   ├── config.py              # Configuration and environment variables
+│   ├── database.py            # Milvus database operations
+│   ├── document_processor.py  # Text extraction from URLs/PDFs/images
+│   ├── models.py              # AI model integration (FLAN-T5/GPT)
+│   ├── requirements.txt       # Python dependencies
+│   └── __init__.py            # Package initialization
+│
+├── frontend/                  # Streamlit frontend application
+│   ├── app.py                 # Main Streamlit interface
+│   └── requirements.txt       # Frontend dependencies
+|
+├── .env                       # Environment variables
+├── docker-compose.yml         # Docker orchestration
+└── README.md                  # Project documentation
+```
 
+## System Design
 ```mermaid
 graph TD
     subgraph Frontend
@@ -84,25 +104,39 @@ graph TD
 
 ### Setup
 1. Clone repository:
-   ```bash
+   ```
+   bash
    git clone https://github.com/Madhanadeva-D/Text-Extraction-AI.git
    ```
 
 2. Install dependencies:
-   ```pip install -r backend/requirements.txt
-      pip install -r frontend/requirements.txt
+   ```
+   pip install -r backend/requirements.txt
+   pip install -r frontend/requirements.txt
    ```
 
 ### Running the System:
-   ```# Start Milvus database
-        docker run -d --name milvus -p 19530:19530 milvusdb/milvus:latest
-        
-        # Launch backend (in separate terminal)
-        cd backend
-        python -m uvicorn backend.app:app --reload 
-        
-        # Start frontend (in separate terminal)
-        cd ../frontend
-        python -m streamlit run app.py
    ```
+   # Start Milvus database
+   docker run -d --name milvus -p 19530:19530 milvusdb/milvus:latest
+    
+   # Launch backend (in separate terminal)
+   cd backend
+   python -m uvicorn backend.app:app --reload 
+    
+   # Start frontend (in separate terminal)
+   cd ../frontend
+   python -m streamlit run app.py
+   ```
+
+## Screenshots
+
+![Screenshot 2025-04-03 012414](https://github.com/user-attachments/assets/88caebcb-e013-4d91-9819-597063c36867)
+
+![Screenshot 2025-04-03 013314](https://github.com/user-attachments/assets/8bf754a5-7c69-4606-a6e3-1d60b10cbccd)
+
+![Screenshot 2025-04-03 024515](https://github.com/user-attachments/assets/10e90dbd-169c-44c1-b044-bcf88a5dc9a5)
+
+
+
 
