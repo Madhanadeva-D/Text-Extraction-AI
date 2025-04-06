@@ -12,4 +12,4 @@ beautifulsoup4==4.12.3
 requests==2.31.0
 validators==0.22.0
 sentence-transformers==2.2.2
-deepseek-ai>=0.1.0
+deepseek-ai==0.0.1
