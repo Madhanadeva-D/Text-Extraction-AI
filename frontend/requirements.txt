@@ -1,0 +1,8 @@
+# Core
+streamlit==1.33.0
+requests==2.31.0
+python-dotenv==1.0.0
+
+# Utilities
+Pillow==10.3.0
+validators==0.22.0
