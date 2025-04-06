@@ -12,14 +12,14 @@ The system processes three input types:
 
 ### 2. Vector Storage
 Extracted text is transformed for search:  
-- Split into chunks (500 characters with 50-character overlap)  
+- Split into chunks (10000 characters with 500-character overlap)  
 - Converted to embeddings using `all-MiniLM-L6-v2` model  
 - Indexed in Milvus with IVF_FLAT for fast retrieval  
 
 ### 3. Query Processing
 User questions trigger:  
 - Vector similarity search to find relevant text passages  
-- Context-aware answer generation via FLAN-T5/GPT  
+- Context-aware answer generation via Langchain and DeepSeek API  
 - Response formatting with source citations  
 
 ### 4. API Endpoints
@@ -40,7 +40,7 @@ Streamlit offers:
 | Image OCR        | Tesseract               |
 | PDF Processing   | pdfplumber              |
 | Vector Database  | Milvus (IVF_FLAT index) |
-| AI Model         | FLAN-T5/GPT             |
+| AI Model         | Langchain and DeepSeek  |
 | Backend          | FastAPI                 |
 | Frontend         | Streamlit               |
 
@@ -52,7 +52,7 @@ Text-Extraction-AI/
 │   ├── config.py              # Configuration and environment variables
 │   ├── database.py            # Milvus database operations
 │   ├── document_processor.py  # Text extraction from URLs/PDFs/images
-│   ├── models.py              # AI model integration (FLAN-T5/GPT)
+│   ├── models.py              # AI model integration (Langchain/DeepSeek API)
 │   ├── requirements.txt       # Python dependencies
 │   └── __init__.py            # Package initialization
 │
@@ -131,11 +131,12 @@ graph TD
 
 ## Screenshots
 
-![Screenshot 2025-04-03 012414](https://github.com/user-attachments/assets/88caebcb-e013-4d91-9819-597063c36867)
+![image](https://github.com/user-attachments/assets/533cde96-5788-47a9-82ed-56b814d31dc7)
 
-![Screenshot 2025-04-03 013314](https://github.com/user-attachments/assets/8bf754a5-7c69-4606-a6e3-1d60b10cbccd)
+![image](https://github.com/user-attachments/assets/b2ee01d8-3f4a-4d6b-986c-a8d5d80df0b0)
 
-![Screenshot 2025-04-03 024515](https://github.com/user-attachments/assets/10e90dbd-169c-44c1-b044-bcf88a5dc9a5)
+![image](https://github.com/user-attachments/assets/62fa4149-5167-4c21-89fb-8e97bb6414ce)
+
 
 
 
